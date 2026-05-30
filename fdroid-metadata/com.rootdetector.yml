@@ -1,0 +1,43 @@
+Categories:
+  - Security
+License: Apache-2.0
+AuthorName: nzshit
+SourceCode: https://github.com/nzshit/Root-Detector
+IssueTracker: https://github.com/nzshit/Root-Detector/issues
+
+AutoName: RootDetector
+Description: |-
+  Native Android root detector with multi-layer detection
+  for MagiskSU, KernelSU, APatch, SuperSU, and more.
+
+  Detection layers:
+  • Binaries – su, magisk, ksu, apd, busybox
+  • System – writable partitions
+  • Processes – running processes, mounts, /proc/self/maps
+  • Files – root marker files, module directories
+  • Bootloader – locked/unlocked/tampered + spoofing
+  • Properties – build flags (debuggable, type, tags)
+  • Environment – PATH manipulation, LD flags
+  • SELinux – enforcing/permissive + package query
+
+  No data collection. No network access. Apache 2.0.
+
+RepoType: git
+Repo: https://github.com/nzshit/Root-Detector.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    rm:
+      - gradle/wrapper/gradle-wrapper.jar
+    build:
+      - sed -i -e '/proguardFiles/d' app/build.gradle.kts
+      - sed -i -e '/minifyEnabled/d' app/build.gradle.kts
+      - ./gradlew assembleRelease
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1

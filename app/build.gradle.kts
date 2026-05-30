@@ -16,10 +16,31 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        val keystoreFile = rootProject.file("keystore.properties")
+        if (keystoreFile.exists()) {
+            val props = java.util.Properties().apply { load(keystoreFile.inputStream()) }
+            create("release") {
+                storeFile = rootProject.file(props["storeFile"] as String)
+                storePassword = props["storePassword"] as String
+                keyAlias = props["keyAlias"] as String
+                keyPassword = props["keyPassword"] as String
+            }
+        } else {
+            create("release") {
+                storeFile = file(System.getenv("ANDROID_HOME") + "/.android/debug.keystore")
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs["release"]
         }
     }
 

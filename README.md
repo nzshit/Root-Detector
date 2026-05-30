@@ -8,32 +8,14 @@
 
 Native Android root detector with multi-layer detection for MagiskSU, KernelSU, APatch, SuperSU, and more.
 
-> **⚠️ Disclaimer:** This app is provided for educational and security research purposes only. The source code is open for contributions and audit.
+> Disclaimer: This app is provided for educational and security research purposes only. The source code is open for contributions and audit.
+## The app is "raw" and may contain some errors. The app is ready for additions and modifications.
 
 ## Features
-
-- **Multi-layer detection** — 8 independent checkers covering binaries, processes, files, modules, bootloader, environment, system properties, and process maps
-- **Root management detection** — Magisk, KernelSU, APatch, SuperSU, Xposed, Riru, Zygisk, RootCloak, TWRP
-- **Bootloader status** — Locked/Unlocked/Tampered + spoofing detection
-- **Process memory scan** — Detects Zygisk, Riru, Xposed injections via `/proc/self/maps`
-- **Collapsible customization** — Accent color picker, gradient background, auto-scan, vibration
-- **3-page swipe layout** — Customization ↔ Scan ↔ Credits
-- **Save log** — Export detection results as `.txt` file
-- **Device info sheet** — Hardware, build, kernel, bootloader details
-- **Material 3** — Modern UI with Jetpack Compose
-
-## Detection Layers
-
-| Layer | What it checks |
-|---|---|
-| `ChkBin` | Common root binaries (su, magisk, ksu, apd, busybox) |
-| `ChkRW` | Writable system partitions |
-| `ChkProc` | Running processes, mounts, /proc/self/maps, environment, SELinux |
-| `ChkFile` | Known root marker files, module directories |
-| `ChkBL` | Bootloader status, warranty bit, Knox, spoofing cross-check |
-| `ChkProp` | Build properties (debuggable, type, tags, security patch) |
-| `ChkEnv` | Environment variables (PATH manipulation, LD flags) |
-| `ChkSel` | SELinux enforcing/permissive + package manager query |
+- Bootloader status - Locked/Unlocked
+- Collapsible customization Accent color picker, gradient background, auto-scan, vibration
+- Save log - Export detection results as `.txt` file
+- Device info sheet - Hardware, build, kernel, bootloader details
 
 ## Building
 
@@ -41,7 +23,7 @@ Native Android root detector with multi-layer detection for MagiskSU, KernelSU, 
 
 - Android Studio Ladybug (2024.2.1) or newer
 - JDK 17+
-- Android SDK 36
+- Android SDK 36/34
 
 ### Steps
 
