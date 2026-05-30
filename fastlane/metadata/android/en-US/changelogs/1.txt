@@ -1,0 +1,8 @@
+Initial release.
+- 8-layer root detection
+- Magisk, KernelSU, APatch, SuperSU support
+- Bootloader status + spoofing detection
+- Process memory scan for Zygisk/Riru/Xposed
+- Material 3 UI with customization
+- Log export as text file
+- Device info sheet

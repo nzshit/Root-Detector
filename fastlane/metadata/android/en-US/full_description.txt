@@ -1,0 +1,15 @@
+RootDetector is a privacy-focused, open-source Android application that detects root access on your device using 8 independent detection layers.
+
+Detection layers:
+- Binaries: Finds su, magisk, ksu, apd, busybox and other root binaries
+- System: Checks for writable system partitions
+- Processes: Scans running processes, mounts, /proc/self/maps for injection
+- Files: Detects known root marker files and module directories
+- Bootloader: Reports locked/unlocked/tampered state with spoofing detection
+- Properties: Analyzes build properties for root indicators
+- Environment: Checks PATH manipulation and suspicious variables
+- SELinux: Verifies SELinux status and queries installed apps
+
+The app uses Material 3 design with Jetpack Compose and requires no special permissions. Results are displayed in a clean monospace log format with the ability to export as a text file.
+
+No data collection. No network access. Fully open source under Apache License 2.0.
